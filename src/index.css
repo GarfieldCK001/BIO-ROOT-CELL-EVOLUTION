@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', 'Noto Sans Thai', 'Noto Sans SC', sans-serif;
+    --font-body: 'Plus Jakarta Sans', 'Noto Sans Thai', 'Noto Sans SC', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: none;
+    font-family: var(--font-body);
+    background-color: #030b12;
+    color: #e6f7f5;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-text-stroke {
+  text-shadow:
+    0 1px 2px rgba(2, 8, 15, 0.95),
+    0 0 8px rgba(2, 8, 15, 0.75);
+}
+
+@keyframes rootFlow {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-root-flow {
+  animation: rootFlow 1.6s linear infinite;
+}
+
+@keyframes bioPulse {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.animate-bio-pulse {
+  animation: bioPulse 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-root-flow,
+  .animate-bio-pulse {
+    animation: none;
+  }
+}
